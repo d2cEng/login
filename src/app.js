@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 // Routing
-const home = require("./routes/home");
+const home = require("./views/home");
 
 // App setup
 app.set("views","./views");
