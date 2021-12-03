@@ -4,7 +4,7 @@ const id = document.querySelector("#id"),
 name = document.querySelector("#name"),
     pw = document.querySelector("#pw"),
     confirmpw =document.querySelector("#confirm-pw"),
-    registerBtn = document.querySelector("button");
+    registerBtn = document.querySelector("#button");
 
 registerBtn.addEventListener("click", register);
 
@@ -15,7 +15,7 @@ function register() {
         pw: pw.value,
         confirmpw: confirmpw.value,
     };
-
+    
     fetch("/register", {
         method: "POST",
         headers: {
@@ -32,6 +32,6 @@ function register() {
             }
         })
         .catch((err) => {
-            console.error("logging error");
+            console.error("signup error");
         })
 }
