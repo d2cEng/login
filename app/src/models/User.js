@@ -20,10 +20,10 @@ class User {
         return { success: false, msg: "No ID exist" };
     }
 
-    register(){
+    register() {
         const client = this.body;
         UserStorage.save(client);
-    
+
     }
 }
 
