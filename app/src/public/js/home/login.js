@@ -1,5 +1,7 @@
 "use strict";
 
+const logger = require("./src/config/logger");
+
 const id = document.querySelector("#id"),
     pw = document.querySelector("#pw"),
     loginBtn = document.querySelector("#button");
@@ -28,6 +30,6 @@ function login() {
             }
         })
         .catch((err) => {
-            console.error("logging error");
+            logger.error(`${PORT} logging error`);
         })
 }

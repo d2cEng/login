@@ -1,5 +1,7 @@
 "use strict";
 
+const logger = require("./src/config/logger");
+
 const id = document.querySelector("#id"),
     name = document.querySelector("#name"),
     pw = document.querySelector("#pw"),
@@ -34,6 +36,6 @@ function register() {
             }
         })
         .catch((err) => {
-            console.error("signup error");
+            logger.error(`${PORT} signup error`);
         })
 }
