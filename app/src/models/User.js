@@ -19,8 +19,8 @@ class User {
                 return { success: false, msg: "Wrong Password" };
             }
             return { success: false, msg: "No ID exist" };
-        } catch {
-            return { success: false, msg: err };
+        } catch (err) {
+            return { success: false, err };
         }
     }
 
@@ -30,7 +30,7 @@ class User {
             const response = await UserStorage.save(client);
             return response;
         } catch (err) {
-            return { success: false, msg: err };
+            return { success: false, err };
         }
     }
 }

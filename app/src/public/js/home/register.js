@@ -1,6 +1,7 @@
 "use strict";
 
-const logger = require("./src/config/logger");
+// const appRoot = require("app-root-path");
+// const logger = require(`${appRoot}/src/config/logger`);
 
 const id = document.querySelector("#id"),
     name = document.querySelector("#name"),
@@ -32,10 +33,11 @@ function register() {
             if (res.success) {
                 location.href = "/login";
             } else {
+                if(res.err) return alert(res.err);
                 alert(res.msg);
             }
         })
         .catch((err) => {
-            logger.error(`${PORT} signup error`);
+            logger.error(`${PORT} ${err} : signup error`);
         })
 }

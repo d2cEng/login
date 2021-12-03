@@ -1,6 +1,7 @@
 "use strict";
 
-const logger = require("./src/config/logger");
+// const appRoot = require("app-root-path");
+// const logger = require(`${appRoot}/src/config/logger`);
 
 const id = document.querySelector("#id"),
     pw = document.querySelector("#pw"),
@@ -9,6 +10,8 @@ const id = document.querySelector("#id"),
 loginBtn.addEventListener("click", login);
 
 function login() {
+    if (!id.value) return alert("no id");
+    if (!pw.value) return alert("no pw");
     const req = {
         id: id.value,
         pw: pw.value,
@@ -26,10 +29,11 @@ function login() {
             if (res.success) {
                 location.href = "/";
             } else {
+                if(res.err) return alert(res.err);
                 alert(res.msg);
             }
         })
         .catch((err) => {
-            logger.error(`${PORT} logging error`);
+            logger.error(`${PORT} ${err} : logging error`);
         })
 }
